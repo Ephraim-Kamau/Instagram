@@ -13,7 +13,7 @@ class Image(models.Model):
     name = models.CharField(max_length=30)
     caption = models.TextField()
     profile = models.ForeignKey(Profile, blank =True)
-    comments = models.ForeignKey(Comments, blank =True)
+    comments = models.ForeignKey(Comments)
     pub_date = models.DateTimeField(auto_now_add=True)
     image_image = models.ImageField(upload_to = 'pix/')
 
