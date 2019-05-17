@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect,Http404
 import datetime as dt
+from .models import Image
 
 # Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
 
 def images_today(request):
     date = dt.date.today()
-    return render(request, 'all-images/today-images.html', {"date": date,})
+    images = Image.objects.all()
+    
+    return render(request, 'all-images/today-images.html', {"date": date,"images":images})
 
 
 def past_images(request,past_date):
@@ -23,4 +24,17 @@ def past_images(request,past_date):
     if date == dt.date.today():
        return redirect(images_today)
 
-    return render(request, 'all-images/past-images.html', {"date": date})
+    return render(request, 'all-images/past-images.html', {"date": date,"images":images})
+
+def search_results(request):
+
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_articles = Article.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-images/search.html',{"message":message,"image": searched_image})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-images/search.html',{"message":message})    
