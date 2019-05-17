@@ -11,8 +11,8 @@ class Comments(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length=30)
     caption = models.TextField()
-    profile = models.ForeignKey(Profile)
-    comments = models.ForeignKey(Comments)
+    profile = models.ForeignKey(Profile, blank =True)
+    comments = models.ForeignKey(Comments, blank =True)
     pub_date = models.DateTimeField(auto_now_add=True)
 
 
