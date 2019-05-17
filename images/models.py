@@ -13,6 +13,7 @@ class Image(models.Model):
     caption = models.TextField()
     profile = models.ForeignKey(Profile)
     comments = models.ForeignKey(Comments)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
  
