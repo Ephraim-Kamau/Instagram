@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse,Http404
+from django.shortcuts import render,redirect,Http404
 import datetime as dt
 
 # Create your views here.
@@ -7,28 +7,8 @@ def welcome(request):
 
 def images_today(request):
     date = dt.date.today()
+    return render(request, 'all-images/today-images.html', {"date": date,})
 
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>Images for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
-
-def convert_dates(dates):
-
-    # Function that gets the weekday number for the date.
-    day_number = dt.date.weekday(dates)
-
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
-
-    # Returning the actual day of the week
-    day = days[day_number]
-    return day
 
 def past_images(request,past_date):
     try:
@@ -37,14 +17,10 @@ def past_images(request,past_date):
 
     except ValueError:
         # Raise 404 error when ValueError is thrown
-        raise Http404()    
+        raise Http404()
+        assert False    
 
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>Images for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    if date == dt.date.today():
+       return redirect(images_today)
+
+    return render(request, 'all-images/past-images.html', {"date": date})
