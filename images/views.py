@@ -3,7 +3,7 @@ import datetime as dt
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to Instagram')
+    return render(request, 'welcome.html')
 
 def images_today(request):
     date = dt.date.today()
