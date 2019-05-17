@@ -15,6 +15,7 @@ class Image(models.Model):
     profile = models.ForeignKey(Profile, blank =True)
     comments = models.ForeignKey(Comments, blank =True)
     pub_date = models.DateTimeField(auto_now_add=True)
+    image_image = models.ImageField(upload_to = 'pix/')
 
     @classmethod
     def search_by_name(cls,search_term):
