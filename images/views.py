@@ -11,7 +11,7 @@ def images_today(request):
     
     images = Image.objects.all()
     
-    return render(request, 'all-images/today-images.html', {"images":images})
+    return render(request, 'today-images.html', {"images":images})
 
 
 def past_images(request,past_date):
