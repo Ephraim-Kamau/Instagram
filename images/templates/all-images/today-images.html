@@ -2,6 +2,7 @@
 {% block content %} 
 {{ block.super}}
 
+<div class="homebody">
 <div class="container">
 
   <!-- Looping through images   -->
@@ -9,10 +10,15 @@
 
 
   <!--Display news Article images  -->
-  <div class=" col-md-6">
-        <img src="{{images_item.image_image.url}}" class="img-responsive center"  alt="Image">
+  <div class="w3-card-6" style="width:56%">
+      
+          <div class="panel panel-primary">
+              <p class="usernamehome-dp"> 
+        <img src="{{images_item.image_image.url}}" class="img-responsive"  alt="Image">
         <h2 class="text-center"> {{ images_item.name }} </h2>
       </div>
+    </div>
+ 
 
   </div>
 
@@ -22,6 +28,7 @@
   </div>
   {% endfor %}
 
+</div>
 </div>
 
 {% endblock %}

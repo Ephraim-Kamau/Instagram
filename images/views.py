@@ -5,10 +5,10 @@ from .models import Image
 # Create your views here.
 
 def images_today(request):
-    date = dt.date.today()
+    
     images = Image.objects.all()
     
-    return render(request, 'all-images/today-images.html', {"date": date,"images":images})
+    return render(request, 'all-images/today-images.html', {"images":images})
 
 
 def past_images(request,past_date):
