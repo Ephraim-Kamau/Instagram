@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect,Http404
 import datetime as dt
 from .models import Image
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
+@login_required(login_url='/accounts/login/')
 def images_today(request):
     
     images = Image.objects.all()
