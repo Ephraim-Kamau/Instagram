@@ -2,15 +2,17 @@
 {% block content %} 
 {{ block.super}}
 
-<i class=" far fa-user-circle fa-lg"></i>
+<a class="fas fa-cog fa-spin"></a>
 <div class="container">
         <div class="row">
                 <div class="card-column">
   
+                       
   <!-- Looping through images   -->
   {% for images_item in images %}
   
   <!--Display images  -->
+
   <div class="col-md-4">
         <img src="{{images_item.image_image.url}}" class="img-responsive"  alt="Image"><hr>
       </div>

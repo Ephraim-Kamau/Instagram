@@ -6,17 +6,20 @@
     <div class="row justify-content-md-center">
         <div class="col col-lg-60">
 
+{% if user.is_authenticated %}
+
   <!-- Looping through images   -->
   {% for images_item in images %}
 
 
-  <!--Display news Article images  -->
-  <div class="col-md-4 w3-card-4 " style="width:56%">
+  <!--Display  images  -->
+  <div class="w3-card-3" style="width:50%" id="name1">
       
           <div class="panel panel-primary">
-              <p class="usernamehome-dp"> {{ images_item.name }} </p> 
+              <p class="usernamehome-dp">{{ user.username }} </p> 
+              
         <img src="{{images_item.image_image.url}}" class="img-responsive"  alt="Image">
-        <h2 class="text-left"> {{ images_item.caption }} </h2>
+        <h2 class="text-left"> {{ user.username}}:{{images_item.caption }} </h2>
         <h2 class="text-left"> {{ images_item.comments }} </h2>
       </div>
     </div>
@@ -24,12 +27,13 @@
 
   </div>
 
+
   {% empty %}
   <div class="row">
     <h2 class="text-center">There Are No Images</h2>
   </div>
   {% endfor %}
-
+  {% endif %}
 </div>
 </div>
 </div>
