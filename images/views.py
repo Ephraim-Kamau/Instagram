@@ -13,21 +13,10 @@ def images_today(request):
     
     return render(request, 'today-images.html', {"images":images})
 
+def profile(request):
+    images = Image.objects.all()
 
-def past_images(request,past_date):
-    try:
-        # Converts data from the string Url
-        date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
-
-    except ValueError:
-        # Raise 404 error when ValueError is thrown
-        raise Http404()
-        assert False    
-
-    if date == dt.date.today():
-       return redirect(images_today)
-
-    return render(request, 'all-images/past-images.html', {"date": date,"images":images})
+    return render(request, 'profile.html', {"images":images})
 
 def search_results(request):
 

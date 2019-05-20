@@ -2,40 +2,25 @@
 
 
 {% if user.is_authenticated %}
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="panel-heading">
-              <div class="col-md-6">
+              <div class="col-md-4">
             <a class="navbar-brand fab fa-instagram"  href="{% url 'imagesToday' %}"> | Instagram </a>
           </div>
     
           <!-- Adding a search form  -->
-          <div class=" col-md-4 navbar-left">
-    
+          <div class=" col-md-4 navbar-left">    
             <form class="navbar-form" role="search" action="{% url 'search_results' %}">
                 <div class="center">
                     <input style="height:23px;width:200px;margin-top:6px;margin-left:5px" type="text" class="input-sm form-control" name="search-form"
                         placeholder="               Search User">
                 </div>
               </div>
-            
-              
-         
-                  <ul>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                                <span class="caret"></span>
-                            </a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li>
-                          <a href="/accounts/password/change">Change Password</a>
-                        </li>
-                        <li>
-                          <a href="/logout">Logout</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <a class="navbar-brand fas fa-user-circle" href="/profile"></a>
+                       
+                     
+                  <a class="navbar-brand fas fa-camera-retro" href="/upload"></a>
             </form>
          
           <!-- search form end -->
