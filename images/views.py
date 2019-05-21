@@ -77,5 +77,5 @@ def uploads(request):
             image.save()
         return redirect("profile")
     else:
-        form=PostImage()
+        pass
     return render(request,"upload.html",{"title":title,"form":form})          

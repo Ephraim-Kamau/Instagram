@@ -1,47 +1,57 @@
-{%extends "registration/base.html"%}
-{% load bootstrap3 %}
-{% block content %}
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-
-    <div class="loginimage">
-            <img src="/media/106038209-istanbul-may-10-2018-apple-iphone-x-screen-with-instagram-logo-holding-by-a-female-hand-against-isol.jpg" alt="instagram login phone ">
-        </div>
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      {% if form.errors %}
-        <p> Password or Username is incorrect </p>
-      {% endif %}
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h3 class="text-center">Sign In</h3>
-        </div>
-        <div class="panel-body">
-
-          
-          <form  action="/accounts/login/" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form%}
-
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+      {%extends "registration/base.html"%}
+      {% load bootstrap3 %}
+      {% block content %}
+      <div class="container">
+        <div class="row">
+          <!-- Empty div -->
+          <div class="col-md-8">
+            <div class="row">
+          <div class="loginimage">
+                  <img src="/media/logo4.png"  style="padding:10px;" alt="instagram login phone ">
+              </div>
             </div>
-            <input type="hidden" name="next" value="{{next}}">
-
-          </form>
-
-          <p>Don't have an Account? <a href="/accounts/register/">Sign Up Here</a></p>
-
+          </div>
+          <div class="col-md-4 contain" style="padding:90px;"></div>
+            <div class="col-md-4 ">
+            {% if form.errors %}
+              <p> Password or Username is incorrect </p>
+            {% endif %}
+      
+          
+                <div class="row">
+            <div class="panel panel-default" >
+      
+              <div class="panel-heading" >
+                <h3 class="text-center" >Sign In</h3>
+              </div>
+              <div class="panel-body">
+      
+                
+                <form  action="/accounts/login/" method="post">
+                  {% csrf_token %}
+                  {% bootstrap_form form%}
+      
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-sm"  value="Login">
+                  </div>
+                  <input type="hidden" name="next" value="{{next}}">
+      
+                </form>
+      
+                <p>Don't have an Account? <a href="/accounts/register/"><br>
+                          Sign Up Here</a></p>
+      
+              </div>
+         
+          </div>
+      
+            
+      
+          </div>
+          <!-- empty div -->
+          <div class="col-md-4"></div>
         </div>
-
       </div>
-
     </div>
-    <!-- empty div -->
-    <div class="col-md-4"></div>
-  </div>
-</div>
-
-{% endblock %}
+      
+      {% endblock %}      
