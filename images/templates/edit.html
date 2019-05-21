@@ -28,7 +28,10 @@
       <br>
       <hr class="info">
       <div class="tags">
-        <a href="#"><i class="far fa-newspaper"></i> Edit Profile</a>
+          <form  action="//" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form%}
+        <a class="far fa-newspaper"> Edit Profile</a>
       </div>
       <br>
       <div class="uploads">

@@ -18,6 +18,23 @@ def profile(request):
 
     return render(request, 'profile.html', {"images":images})
 
+
+@login_required(login_url='/accounts/login/')
+def uploads(request):
+    current_user=request.user
+
+    if request.method=='POST':
+        form=UploadForm(request.POST,request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.profile = current_user
+            image.save()
+        return redirect("profile")
+
+    else:
+        form = UploadForm()
+    return render(request,'upload.html',{"form":form})    
+
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
@@ -63,19 +80,4 @@ def edit(request):
 
             return render(request,"edit.html",{"form":form})   
 
-def uploads(request):
-    title='Upload'
-    current_user=request.user
-    current_user_id=request.user.id
-    if request.method=='POST':
-        form=PostImage(request.POST,request.FILES)
-        if form.is_valid():
-            image=form.save(commit=False)
-            image.user=current_user
-            image.userId=current_user_id
-            image.profile=current_user_id
-            image.save()
-        return redirect("profile")
-    else:
-        pass
-    return render(request,"upload.html",{"title":title,"form":form})          
+          

@@ -6,6 +6,14 @@ import datetime as dt
 class Profile(models.Model):
     bio = models.TextField()
 
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        profile=Profile.objects.all().delete()
+        return profile
+   
+
 class Comments(models.Model):
     comment = models.TextField()   
 
@@ -21,6 +29,11 @@ class Image(models.Model):
     def search_by_name(cls,search_term):
         images = cls.objects.filter(title__icontains=search_term)
         return images
+
+    @classmethod
+    def update_profile(cls,profile,update):
+         updated = cls.objects.filter(Image_name=profile).update(name=update)
+         return updated     
 
 
  
