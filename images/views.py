@@ -26,8 +26,9 @@ def uploads(request):
     if request.method=='POST':
         form=UploadForm(request.POST,request.FILES)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.profile = current_user
+            image = form.save(commit=False)      
+            image.user = current_user
+            image.profile = current_user
             image.save()
         return redirect("profile")
 

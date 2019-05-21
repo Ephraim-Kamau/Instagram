@@ -2,56 +2,48 @@
 {% block content %} 
 {{ block.super}}
 
-<div  class="container prof">
-        <br><br>
-        <div class="row">
-          <div class="col-md-1"> </div>
-          <div class="col-md-8">
-            <div class="row">
-              <div class="col-md-4">
-                
-              </div>
-              <div class="col-md-8">
-                <div class=" idea">
-      
-                   
-                  <ul>
-                        <a>{{user}}</a><hr> 
-                        <a>{{user.caption}}</a>
-                        <a href="/profile/uploads" button class="btn btn-success" type="submit" name="button">Upload Picture</button></a>
-                        <button class="btn btn-info" type="submit" name="button">Edit Profile</button> 
-                        <button class="btn btn-warning dropdown">
-                          <a class="" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                                    <span class="caret"></span>
-                                </a>
-                           <i class="fas fa-cog fa-spin"></i>     
-                          <ul class="dropdown-menu" role="menu">
-                            <li>
-                              <a href="/accounts/password/change">Change Password</a>
-                            </li>
-                            <li>
-                              <a href="/logout">Logout</a>
-                              <a href="">Cancel</a>
-                            </li>
-                          </ul>
-                        </button>
-                      </ul>
-                 
-      <hr>
-                </div>
+<div  class="container">
+<br><br>
+<div class="row">
+  <div class="col-md-1"> </div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-4">  
+        
+      </div>
+      <div class="col-md-8">
+        <div class=" idea">
 
-<div class="container">
-        <div class="row">
-                <div class="card-column">
-  
-                       
-  <!-- Looping through images   -->
+        
+      <ul>
+            <a>{{user}}</a><hr> 
+            <a href="/profile/uploads" button class="btn btn-success" type="submit" name="button">Upload Picture</button></a>
+            <button class="btn btn-info" type="submit" name="button">Edit Profile</button> 
+            <button class="btn btn-warning dropdown">
+              <a class="" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                        <span class="caret"></span>
+                    </a>
+                <i class="fas fa-cog fa-spin"></i>     
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="/accounts/password/change">Change Password</a>
+                </li>
+                <li>
+                  <a href="/logout">Logout</a>
+                  <a href="">Cancel</a>
+                </li>
+              </ul>
+            </button>
+          </ul>
+              
+  <hr>
+            </div>
+
   {% for images_item in images %}
-  
-  <!--Display images  -->
-
-  <div class="col-md-4">
-        <img src="{{images_item.image_image.url}}" class="img-responsive"  alt="Image"><hr>
+<div class="container">
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+            <img src="{{images_item.image_image.url}}" class="img-responsive"  alt="Image">
       </div>
 
   </div>
@@ -63,7 +55,8 @@
 </div>
 
 
-  {% empty %}
+
+
   {% endfor %}
 </div>
 {% endblock %}
