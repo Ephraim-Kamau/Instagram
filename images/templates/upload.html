@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 {{block.supper}}
-{%load bootstrap4%}
+{%load bootstrap3%}
 {%block content%}
 
 <div  class="container prof">
@@ -12,14 +12,14 @@
       <br>
       <hr class="info">
       <div class="tags">
-        <a href=""><i class="far fa-newspaper"></i> Edit Profile</a>
       </div>
       <br>
       <div class="uploads">
-        <form class="form-group" action="{%url 'uploads'%}" method="post" enctype="multipart/form-data">
-          <h3>Instagram Update Picture</h3>
-          {%csrf_token%}
-          {%bootstrap_form form%}
+        <form class="form-group" action="{%url 'new_post'%}" method="post" enctype="multipart/form-data">
+          <h3>Upload Picture</h3>
+          {% csrf_token%}
+          {% bootstrap_form form%}
+          
 
           <button class="btn btn-info" type="submit" name="button">Upload</button>
 

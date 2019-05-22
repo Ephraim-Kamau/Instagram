@@ -1,7 +1,9 @@
-from django.shortcuts import render,redirect,Http404
-import datetime as dt
-from .models import Image
+from django.shortcuts import render,redirect
+from django.http import HttpResponse, Http404
+from .models import Image,Profile,Comments
+from .forms import NewPostForm
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # Create your views here.
@@ -20,20 +22,18 @@ def profile(request):
 
 
 @login_required(login_url='/accounts/login/')
-def uploads(request):
+def new_post(request):
     current_user=request.user
 
     if request.method=='POST':
-        form=UploadForm(request.POST,request.FILES)
+        form=NewPostForm(request.POST,request.FILES)
         if form.is_valid():
-            image = form.save(commit=False)      
-            image.user = current_user
-            image.profile = current_user
-            image.save()
+            post = form.save(commit=False)      
+            post.profile = current_user
+            post.save()
         return redirect("profile")
-
     else:
-        form = UploadForm()
+        form = NewPostForm() 
     return render(request,'upload.html',{"form":form})    
 
 def search_results(request):
