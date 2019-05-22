@@ -32,7 +32,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 <li>Clone the Instagram repository</li>
 <li>Create your own virtual environment and activate it using these respective commands:python3.6 -m venv --without-pip virtual && source virtual/bin/activate</li>
 <li>Install all the necessary dependencies necessarry for running the application using this command: pip install-r requirements.txt</li>
-<li>Create a database: psql then create the databse using this command: CREATE DATABASE <database-name> </li>
+<li>Create a database: psql then create the databse using this command: CREATE DATABASE     database-name </li>
 <li>Run migrations using these respective commmands: python3.6 manage.py makemigrations images then: python3.6 manage.py migrate</li>
 <li>Run the app using this command: python3.6 manage.py runserver on the terminal.You can then open the app on your browser</li>
 </ul>
