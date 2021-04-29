@@ -47,7 +47,7 @@ The application allows users to sign up, upload pictures,view other user's pictu
 </ul>
 
 ### Support and Contact Details
-For more information, questions, or feedback, get in touch with me on +254 710 700358 or email: kephraim19@gmail.com
+For more information, questions, or feedback, get in touch with me via email: kephraim19@gmail.com
 
 ### Licence
 Copyright(c) 2019 Ephraim Kamau
